@@ -1,0 +1,8 @@
+For Javascript
+
+protoc -I=./chat chat.proto --js_out=import_style=commonjs,binary:./chat/frontend/src --grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:./chat/frontend/src
+
+
+
+Start envoy
+docker run --rm -v "$(pwd)/envoy.yaml:/etc/envoy/envoy.yaml" -p 8080:8080 -p 9901:9901 envoyproxy/envoy:v1.18.3
